@@ -233,3 +233,87 @@ const result = groupNum.map(item=>item * 2);
 
 console.log(result);
 
+
+const doubleNum = [2,3,4,5,8];
+
+const result1 = doubleNum.map((item) => {
+    item * 2 
+   
+});
+
+const fruitSweet = ['apple', 'banana', 'orange','pineapple'];
+
+const indexMap = fruitSweet.map((item,index)=>({
+    item,index
+}));
+
+console.log(indexMap);
+
+const oddNum = [1,2,3,4,5,8,9];
+
+const oddIndex = oddNum.filter((item,index)=> item % 2 !==0);
+
+console.log(oddIndex);
+
+var nameId = ['Adam', 'Jeffrey', 'Fabiano', 'Danil', 'Ben'];
+
+function len_campare(a,b) {
+    return a.length - b.length;
+}
+
+nameId.sort(len_campare);
+console.log(nameId);
+console.log(nameId)
+
+var priceList = [100,50,5,2,4,7,14];
+
+priceList.sort((a,b) => {
+    return a - b;
+});
+
+console.log(priceList);
+
+priceList.sort((a,b) => {
+    return b - a;
+});
+
+console.log(priceList);
+
+let numbersFind = [1,2,3,4,9,8];
+
+numbersFind.forEach((item)=> console.log(item));
+
+console.log(numbersFind);
+
+const itemsFu = ['item1', 'item2', 'item3','item4', 'item5'];
+const copyItem = []
+itemsFu.forEach((item,index) => {
+    const startNum = index + 1;
+    copyItem.push(`${startNum}. ${item}`);
+});
+
+console.log(itemsFu);
+
+let people = ['Greg', 'Mary', 'Devon', 'James'];
+
+for(let i = 0; i < people.length; i++) {
+    console.log(`${i}: ${people[i]}`);
+}
+
+const firstNameLastName = [
+    {firstName: 'Sai Kumar', lastName: 'Mutoopuri'},
+    {firstName: 'Ajitha', lastName: 'Mutoopuri'},
+    {firstName: 'Sathvik', lastName: 'Mutoopuri'}
+];
+
+function getFullName(item) {
+    return [item.firstName, item.lastName].join(' ');
+}
+
+console.log(firstNameLastName.map(getFullName));
+
+
+people.forEach((item, index) => {
+    const startValue = index + 1
+    console.log(`${startValue}: ${item}`)
+})
