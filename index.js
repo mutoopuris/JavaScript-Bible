@@ -226,3 +226,10 @@ myMap.set('key2', 'value2');
 myMap.forEach((value, key)=> {
     console.log(`${key}: ${value}`);
 });
+
+const groupNum = [2,3,4,5,6,8];
+
+const result = groupNum.map(item=>item * 2);
+
+console.log(result);
+
