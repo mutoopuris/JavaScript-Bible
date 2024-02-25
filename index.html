@@ -1,0 +1,59 @@
+<!--
+    Basic HTML template
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOM Manipulation Example</title>
+<style>
+.highligted {
+    background-color: red;
+}
+.error {
+    color: red;
+}
+</style>
+</head>
+<body>
+    <p id="demo">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla facere quibusdam error ducimus ad blanditiis vitae corrupti perspiciatis, recusandae itaque voluptatibus autem modi magni explicabo vero obcaecati. Odio, quidem vitae.</p>
+  <button id="myButton">Click Me</button>
+
+
+  <form id="myForm" novalidate>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br/>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <br/>
+    <button type="submit">Submit</button>
+    <p id="error-message" class="error"></p>
+  </form>
+  <div id="data-container"></div>
+  <script src="index.js"></script>
+  <script>
+    const dataContainer = document.getElementById('data-container');
+    const apiUrl ='https://jsonplaceholder.typicode.com/posts';
+
+fetch(apiUrl)
+.then(response => {
+    if(!response.ok) {
+        throw new Error('Network error')
+    }
+    return response.json();
+})
+.then(data => {
+    data.slice(0,2).forEach(item => {
+     const listItem = document.createElement('div');
+     listItem.textContent = `Title: ${item.title},Body: ${item.body}`;
+     dataContainer.appendChild(listItem);   
+    });
+    console.log(data);
+})
+.catch(error=> {
+    console.error(`Error fetching data: ${error}`)
+});
+  </script>
+</body>
+</html>
